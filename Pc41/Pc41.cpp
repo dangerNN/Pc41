@@ -24,7 +24,7 @@ public:
 
 int main() {
     vector<Computer> computers = {
-        Computer("HP Pavilion", 3, 8, true, 15000),
+        Computer("HP Pavilion", 3, 8, true, 15000), 
         Computer("Dell Inspiron", 2, 16, false, 20000),
         Computer("Lenovo ThinkPad", 4, 32, true, 25000),
         Computer("Asus ZenBook", 2, 8, false, 18000),
