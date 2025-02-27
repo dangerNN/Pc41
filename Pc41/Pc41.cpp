@@ -8,7 +8,7 @@ using namespace std;
 class Computer {
 public:
     string name;
-    int GHz; // in GHz
+    int GHz;
     int ram_size;
     bool has_dvd_rom;
     double price;
@@ -31,14 +31,12 @@ int main() {
         Computer("Acer Nitro", 3, 16, true, 22000)
     };
 
-    // Print the initial state of the container
     cout << "Initial state of the container:" << endl;
     for (const auto& computer : computers) {
         computer.print();
     }
     cout << endl;
 
-    // 1. Find a computer by name using find_if()
     string search_name = "Lenovo ThinkPad";
     auto found = find_if(computers.begin(), computers.end(), [&](const Computer& computer) {
         return computer.name == search_name;
@@ -53,7 +51,6 @@ int main() {
     }
     cout << endl;
 
-    // 2. Find the computer with the lowest frequency and remove it from the container (min_element() and erase())
     auto min_GHz = min_element(computers.begin(), computers.end(), [](const Computer& a, const Computer& b) {
         return a.GHz < b.GHz;
         });
@@ -68,7 +65,6 @@ int main() {
     }
     cout << endl;
 
-    // 3. Count the number of computers that have a DVD-ROM (count_if())
     int dvd_count = count_if(computers.begin(), computers.end(), [](const Computer& computer) {
         return computer.has_dvd_rom;
         });
@@ -76,10 +72,9 @@ int main() {
     cout << "Number of computers with DVD-ROM: " << dvd_count << endl;
     cout << endl;
 
-    // 4. Increase the price of computers with more than 16GB of RAM (for_each())
     for_each(computers.begin(), computers.end(), [](Computer& computer) {
         if (computer.ram_size > 16) {
-            computer.price *= 1.1; // Increase price by 10%
+            computer.price *= 1.1;
         }
         });
 
@@ -89,8 +84,6 @@ int main() {
     }
     cout << endl;
 
-    // 5. Sort the container in ascending and descending order of price (sort())
-    // Sort by ascending price
     sort(computers.begin(), computers.end(), [](const Computer& a, const Computer& b) {
         return a.price < b.price;
         });
@@ -101,7 +94,6 @@ int main() {
     }
     cout << endl;
 
-    // Sort by descending price
     sort(computers.begin(), computers.end(), [](const Computer& a, const Computer& b) {
         return a.price > b.price;
         });
